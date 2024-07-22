@@ -32,7 +32,9 @@ const router = createBrowserRouter([
   }
 
 
-]);
+], {
+  basename: '/New-SSTC'
+});
 
 function App() {
  
