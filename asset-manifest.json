@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/New-SSTC/static/css/main.da0f153f.css",
+    "main.js": "/New-SSTC/static/js/main.95de1cb6.js",
+    "static/js/453.d63f21d4.chunk.js": "/New-SSTC/static/js/453.d63f21d4.chunk.js",
+    "static/media/home-background-image.jpg": "/New-SSTC/static/media/home-background-image.fbc42775f1213910b979.jpg",
+    "static/media/glassbuilding.jpeg": "/New-SSTC/static/media/glassbuilding.f25ce553cf46f99e3c58.jpeg",
+    "static/media/cardimage1.jpg": "/New-SSTC/static/media/cardimage1.6066fb3e433fbf117182.jpg",
+    "static/media/cardimage4.png": "/New-SSTC/static/media/cardimage4.2ec37e6d675422e965cf.png",
+    "static/media/cardimage2.png": "/New-SSTC/static/media/cardimage2.0d05712361e979cfc9ba.png",
+    "static/media/cardimage3.png": "/New-SSTC/static/media/cardimage3.a926b639be445f64ce6f.png",
+    "static/media/mobile-home-background-image.jpg": "/New-SSTC/static/media/mobile-home-background-image.1b25bf5dbd696389a07e.jpg",
+    "static/media/serviceimage2.png": "/New-SSTC/static/media/serviceimage2.415c817721e406fe4dba.png",
+    "static/media/leftsectionimage.jpg": "/New-SSTC/static/media/leftsectionimage.9158a7c63a4fca95610e.jpg",
+    "static/media/serviceimage3.png": "/New-SSTC/static/media/serviceimage3.6951e831c871e452c5ab.png",
+    "static/media/serviceimage1.png": "/New-SSTC/static/media/serviceimage1.2b99082f959fac165dc5.png",
+    "static/media/instagram.svg": "/New-SSTC/static/media/instagram.9b97942d29fbfd31b4ef2e55bfae4b92.svg",
+    "index.html": "/New-SSTC/index.html",
+    "static/media/phone-solid.svg": "/New-SSTC/static/media/phone-solid.bac53c82a903b3986ab23381bf97e235.svg",
+    "static/media/email.svg": "/New-SSTC/static/media/email.c2efd1aa4f230dc5aecce034913bd3a0.svg",
+    "static/media/facebook.svg": "/New-SSTC/static/media/facebook.581116911c840c156a7bd5b13a3f7a20.svg",
+    "static/media/rightarrow.svg": "/New-SSTC/static/media/rightarrow.da6f31dbf590e671978a9291234f2a2a.svg",
+    "static/media/caretdown.svg": "/New-SSTC/static/media/caretdown.cac346a6368e0279cec60e78115c434f.svg",
+    "main.da0f153f.css.map": "/New-SSTC/static/css/main.da0f153f.css.map",
+    "main.95de1cb6.js.map": "/New-SSTC/static/js/main.95de1cb6.js.map",
+    "453.d63f21d4.chunk.js.map": "/New-SSTC/static/js/453.d63f21d4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da0f153f.css",
+    "static/js/main.95de1cb6.js"
+  ]
+}
