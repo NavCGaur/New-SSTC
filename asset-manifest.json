@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/New-SSTC/static/css/main.da0f153f.css",
-    "main.js": "/New-SSTC/static/js/main.95de1cb6.js",
+    "main.js": "/New-SSTC/static/js/main.11788987.js",
     "static/js/453.d63f21d4.chunk.js": "/New-SSTC/static/js/453.d63f21d4.chunk.js",
     "static/media/home-background-image.jpg": "/New-SSTC/static/media/home-background-image.fbc42775f1213910b979.jpg",
     "static/media/glassbuilding.jpeg": "/New-SSTC/static/media/glassbuilding.f25ce553cf46f99e3c58.jpeg",
@@ -22,11 +22,11 @@
     "static/media/rightarrow.svg": "/New-SSTC/static/media/rightarrow.da6f31dbf590e671978a9291234f2a2a.svg",
     "static/media/caretdown.svg": "/New-SSTC/static/media/caretdown.cac346a6368e0279cec60e78115c434f.svg",
     "main.da0f153f.css.map": "/New-SSTC/static/css/main.da0f153f.css.map",
-    "main.95de1cb6.js.map": "/New-SSTC/static/js/main.95de1cb6.js.map",
+    "main.11788987.js.map": "/New-SSTC/static/js/main.11788987.js.map",
     "453.d63f21d4.chunk.js.map": "/New-SSTC/static/js/453.d63f21d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da0f153f.css",
-    "static/js/main.95de1cb6.js"
+    "static/js/main.11788987.js"
   ]
 }
