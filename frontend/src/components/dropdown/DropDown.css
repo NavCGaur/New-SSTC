@@ -11,8 +11,9 @@
     list-style: none;
     width: 250px;
     backdrop-filter: unset;
-
-
+    background-color: rgba(2, 29, 53, 0.6); 
+    padding-bottom: 20px;
+    border-radius: 15px;
 
 }
 
