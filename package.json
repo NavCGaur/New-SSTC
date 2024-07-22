@@ -1,0 +1,7 @@
+{
+  "name": "new-tax-consultancy",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "cd frontend && npm run deploy"
+  }
+}
