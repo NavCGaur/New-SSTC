@@ -1,0 +1,239 @@
+.service{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.service__container{
+    height: 100%;
+    width: 83vw;
+    background-color: #e8edf3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 3%;
+
+}
+
+.service__titles{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.service__titles h1{
+    font-size: 12rem;
+    position: relative;
+
+}
+
+.service__titles h2{
+    position: absolute;
+    font-size: 4rem;
+    top: 65%;
+    color: rgb(9, 51, 111);
+   
+}
+
+.service__titles h5{
+    position: absolute;
+    top: 50%;
+    left:45% ;
+    font-size: 1.5rem;
+    color: rgb(94, 112, 134);
+
+}
+
+.gradient-text {
+    background-image: linear-gradient(to bottom, #717275, white);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+.service__cards {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat( 3, 1fr  );
+    margin-left: 80px;
+}
+
+.service .card__image{
+    display: flex;
+    object-fit: cover;
+    height: 12rem;
+    width: 20rem;
+   
+}
+
+.service__card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    max-width: 20rem;
+    border: 1px solid rgb(212, 211, 211);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 4rem;
+}
+
+.service__card .card__image {
+  border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.service__card .card__title{
+    height: 60px;
+    color: rgb(9, 51, 111);
+}
+
+.service__card .card_textContainer{
+    text-align: center;
+    padding: 15px 10px;
+    background-color: white;
+}
+
+.service__card .card_textContainer p{
+    text-align: justify;
+    padding: 5px;
+    
+}
+
+.service__card-link{
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(221, 215, 215);
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    color: rgb(9, 51, 111);
+
+}
+
+.service__rightarrow{
+    height: 1rem;
+    width: 2rem;
+    margin-right: 20px;
+    fill: #717275;
+}
+
+.service__button{
+    color: #717275;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+
+.service__ctaContainer{
+    height: 150px;
+    width: 83vw;
+    margin-right: 3%;
+    background-color: #103c5c;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+}
+
+.service__ctaContainer p{
+    margin-left: 5%;
+}
+
+.service__ctaContainer a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem ;
+    width: 12rem;
+    background-color: rgba(256,180,92);
+    margin-right: 5%;
+    border-radius: 10px;
+
+
+}
+
+@media (max-width:900px){
+
+    .service__cards {
+        
+        grid-template-columns: repeat( 2, 1fr  );
+    }
+}
+
+@media (max-width:500px){
+
+
+    .service__container{
+        width: 100%;
+    }
+
+.service__titles h1{
+    font-size: 8rem;
+
+}
+.service__titles h2{
+    font-size: 3rem;
+
+}
+
+    .service__cards {
+    
+        grid-template-columns: repeat( 1, 1fr  );
+        margin-left: 0;
+    }
+
+    .service__card{
+       
+        max-width: 100%;
+        border: 1px solid rgb(212, 211, 211);
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        margin-bottom: 2rem;
+    }
+
+    .service .card__image{
+        
+        width: 100%;
+        height: auto    ;
+       
+    }
+    .service__card .card__title{
+        font-size: 2rem;
+       
+
+    }
+
+    .service__card .card_textContainer p{
+      font-size: 1.5rem;
+      padding: 0px;
+
+    }
+
+    
+    .service__card-link{
+      font-size: 1.5rem;
+
+    }
+
+
+    .service__ctaContainer{
+        width: 100%;
+        line-height: 3rem;
+        
+    
+    }
+    
+}

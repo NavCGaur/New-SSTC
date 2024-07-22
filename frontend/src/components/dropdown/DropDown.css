@@ -1,0 +1,22 @@
+.dropdown-container{
+    position: relative;
+}
+.dropdown__hidden{
+    display: none;
+}
+
+
+.dropdown__visible{
+    position: absolute;
+    list-style: none;
+    width: 250px;
+    backdrop-filter: unset;
+
+
+
+}
+
+.dropdown__visible li{
+    padding-top: 15px;
+
+}

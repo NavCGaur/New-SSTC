@@ -1,0 +1,261 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.footer__topSection{
+    display: flex;
+    width: 90vw;
+    height: 100%;
+    padding-top: 80px;
+    margin-left: 7%;
+
+}
+
+.footer__leftSection{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 49%;
+}
+
+.footer__leftSection h1{
+    color: rgb(9, 51, 111);
+    font-size: 3rem;
+}
+.footer__leftSection p:first-of-type{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #bfbcbc;
+}
+
+.footer__leftSection p:last-of-type{
+    width: 80%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #727272;
+}
+
+.footer__leftSection .contact__email-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #103c5c;
+    margin-right: 15px;
+
+}
+.footer__leftSection .contact__phone-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #103c5c;
+    margin-right: 15px;
+}
+
+.footer__map {
+    max-width: 100%;
+    height: 40%;
+  }
+  
+  .iframe-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+
+  }
+  
+  .iframe-wrapper iframe {
+    aspect-ratio: 16/9;
+    width: 90%;
+    height: 100%;
+    border: 0;   
+    border-radius: 15px;
+    box-shadow: 0 5px 25px gray;
+
+  }
+  
+
+
+
+.footer__middleLine{
+    margin-top: 1rem;
+    height: 70vh;
+    width: 1px;
+    background-color: #9a9797;
+}
+
+.footer__rightSection{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer__rightContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: 30px;
+}
+
+.footer__rightContainer p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #bfbcbc;
+}
+
+.footer__rightSection h1{
+    color: rgb(9, 51, 111);
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.footer__rightContainer .contactform{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.footer__rightContainer .contactform__name{
+    display: flex;
+
+}
+
+.footer__rightContainer input{
+    width: 99%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    border: 1px solid rgb(144, 139, 139);
+
+    
+}
+.footer__rightContainer input::placeholder{
+    color: rgb(175, 169, 169);
+}
+
+
+.footer__rightContainer textarea{
+    width: 99%;
+    padding: 1rem;
+    height: 10rem;
+    font-size: 1.4rem;
+    border: 1px solid rgb(144, 139, 139);
+    border-radius: 5px;
+
+}
+
+.footer__rightContainer .contactform__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__rightContainer .contactform button{
+    height: 3rem;
+    width: 8rem;
+    font-size: 1.4rem;
+    background-color:rgba(256,180,92);
+    border-radius: 15px;
+    border: 1px solid rgb(194, 190, 190);
+
+}
+
+
+
+.footer__botttomSection{
+    width: 100vw;
+    background-color: #103c5c;
+    color: white;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 50px;
+    
+
+}
+
+
+.footer__contact{
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    margin-left: 3%;
+}
+
+.footer__contact-details{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3%;
+}
+
+.footer__contact-details p{
+   
+    margin-top: 1.4rem;
+}
+
+.footer .contact__email, .footer .contact__phone{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.2rem;
+
+}
+
+.footer__contact-container .contact__email-icon, .footer__contact-container .contact__phone-icon{
+    height: 1.4rem;
+    width: 1.4rem;
+    fill: #103c5c;
+    margin-right: 0;
+
+}
+
+
+.footer__contact-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer__contact-text{
+    width: 33%;
+    padding-left: 5%;
+}
+
+.footer__contact-phoneEmail h3{
+    margin-top: 10px;
+}
+
+.footer__contact-text p{
+    margin-top: 1.4rem;
+    width: 80%;
+}
+
+.footer__contact-socialLinks{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.footer__contact-facebook, .footer__contact-instagram{
+    height: 2rem;
+    width: 2rem;
+    fill: white;
+    margin-right: 15px;
+
+}
+
+.footer__socialicon-container{
+    display: flex;
+    font-size: 1.4rem;
+    margin-top: 1.4rem;
+}
+
+
+.footer__copyright{
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}

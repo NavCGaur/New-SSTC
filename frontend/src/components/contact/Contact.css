@@ -1,0 +1,17 @@
+/*.contact{
+    display: flex;
+}
+
+.contact__email-icon, .contact__phone-icon{
+    height: 0.8rem;
+    width: 0.8rem;
+}
+
+
+.contact__email , .contact__phone {
+    display: flex;
+    font-size: 0.8rem;
+
+}
+
+*/

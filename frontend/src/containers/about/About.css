@@ -1,0 +1,256 @@
+.about{
+    display: flex;
+    position: relative;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center ;
+
+}
+
+.about__container{
+    width: 85vw;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.about__leftSection{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 45%;
+    margin-top: 100px;
+}
+
+.about__leftSection p{
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+.about__leftSection h3{
+    color: gray;
+}
+
+.about__leftSection h1{
+    font-size: 2.5rem;
+    color: rgb(9, 51, 111);
+
+}
+
+.about__leftSection img{
+    height: 8rem;
+    width: 10rem;
+    margin-right: 15px;
+}
+
+.about__imageContainer{
+    display: flex;
+    align-items: end;
+}
+
+.about__contactButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 4rem;
+    border-radius: 5px;
+    background-color: #f0ecf4;
+    color: rgb(9, 51, 111);
+    font-weight: 700;
+    margin-top: 20px;   
+}
+
+
+.about__rightSection{
+    max-width: 37%;
+    height: 70%;
+    position: absolute;
+    top: -7rem;
+    right: 10%;
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr  );
+
+}
+
+
+.about__rightSection .card_textContainer{
+    border: 1px solid rgb(220, 218, 218);
+    box-shadow: 0 10px 10px -2px rgba(0, 0, 0, 0.2);
+
+}
+
+.about__rightSection > :nth-child(2) >div:first-of-type{
+    padding-top: 2rem;
+    margin-left: 1rem;
+}
+
+
+.about__rightSection > :nth-child(4) >div:first-of-type{
+    padding-top: 2rem;  
+    margin-left: 1rem;
+}
+
+.about__rightSection .card__image{
+    display: flex;
+    object-fit: cover;
+    height: 12rem;
+    max-width: 20rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 5px;
+}
+
+.about__rightSection .card__para{
+    padding-bottom: 4rem;
+    padding-left: 10px;
+}
+
+
+.about .card_textContainer{
+    border: 1px solid gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-width: 20rem;
+    margin-left: 5px;
+
+
+}
+
+.about .card_textContainer h2{
+    color: rgb(9, 51, 111);
+    padding: 10px 10px;
+
+    
+}
+
+@media (max-width:1000px){
+    .about__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+   
+
+    .about__leftSection{
+      
+        width: 90%;
+        margin-top: 100px;
+    }
+
+    .about__leftSection p{
+      width: 100%;
+      font-size: 14px;
+
+    }
+
+    .about__imageContainer p{
+        width: 85%;
+
+    }
+
+    .about__rightSection{
+        position: unset;
+        max-width: 100%;   
+        margin-top: 30px;
+
+    }
+
+    .about__rightSection .card{
+        margin-right: 1.2rem;
+        margin-left: 1.2rem;
+    }
+
+    .about__rightSection .card__image{
+     
+        height: 20rem;
+        max-width: 30rem;
+       
+    }
+
+    .about .card_textContainer{
+    
+        max-width: 30rem;   
+    
+    }
+
+}
+
+@media (max-width:600px){
+    .about{
+        min-height: 100vh;
+    }
+        
+    .about__container{
+        width: 95vw;
+       
+
+    }
+
+    .about__imageContainer{
+        flex-direction: column;
+        align-items: start
+    }
+
+    .about__imageContainer img{
+        width: 90%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        
+    }
+
+    .about__leftSection p{
+        width: 100%;
+        font-weight: 400;
+        line-height: 2.5rem;
+        text-align: justify;
+    }
+
+    .about__rightSection{
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+    }
+  
+
+    .about__rightSection > :nth-child(2) >div:first-of-type{
+        padding-top: 0rem;
+        margin-left: 0;
+    }
+    
+    
+    .about__rightSection > :nth-child(4) >div:first-of-type{
+        padding-top: 0rem;  
+        margin-left: 0;
+    }
+
+    .about__rightSection .card{
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .about__rightSection .card__image{
+     
+        max-width: 100%;
+       
+    }
+
+    .about .card_textContainer{
+    
+        max-width: 100%;   
+    
+    }
+
+     
+
+}
+
+
+
