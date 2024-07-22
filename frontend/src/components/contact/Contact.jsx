@@ -1,9 +1,6 @@
 //React imports
 import React from 'react'
 
-//Style imports
-import './Contact.css'
-
 //Importing SVG as React components
 import {ReactComponent as Phone} from '../../assets/phone-solid.svg'
 import {ReactComponent as Email} from '../../assets/email.svg'

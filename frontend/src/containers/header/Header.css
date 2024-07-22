@@ -18,7 +18,7 @@
     background-color: rgba(2, 29, 53, 0.7); 
 
   }
-  
+    
 
 
 .header__fixedSection{
@@ -33,12 +33,13 @@
 }
 
 
-
 /*Styling Contact component as per Header component requirement, using descendent class combinator */
 .header .contact{
     display: flex;
     margin: 10px;
     margin-left: 8%;
+    color:white;
+
 }
 
 /*Styling email section */ 
@@ -47,7 +48,6 @@
     align-items: center;
     font-size: 0.8rem;
     margin-right: 20px;
-    color:rgb(169, 168, 168);
 
 
 }
@@ -56,7 +56,7 @@
     height: 0.8rem;
     width: 0.8rem;  
     margin-right: 10px;
-    fill:  rgb(138, 136, 136);
+    fill:  white;
 }
 
 /*Styling phone section */ 
@@ -64,7 +64,6 @@
     display: flex;
     align-items: center;
     font-size: 0.8rem;
-    color:  rgb(194, 192, 192);
 
 }
 
@@ -72,7 +71,7 @@
     height: 0.8rem;
     width: 0.8rem;
     margin-right: 10px;
-    fill: rgb(194, 192, 192);
+    fill: white;
     
 }
 
@@ -266,6 +265,31 @@
         right:0;
         margin-left: 10%;
     }
+
+    .header__navbar a{
+        padding: 10px ;
+        margin-right: 0;
+        font-size: 1.2rem;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+        text-wrap: nowrap;
+    }
+    
+    .header__navbar p{
+        padding: 10px ;
+        margin-right: 0;
+        font-size: 1.2rem;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+        text-wrap: nowrap;
+        cursor: pointer;
+    }
+    
+    
+.header__logo{
+    margin-left: 2%;
+   
+    font-size: 2rem;
+
+}
     
 
 }

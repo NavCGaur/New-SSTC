@@ -17,23 +17,25 @@ function DropDown(props) {
     const pageId = props.pageId;
     const title = props.title;
 
-    const [dropDown, setDropDown] = useState(false);
+  const [mouseOver, setMouseOver]= useState(false); 
 
-    function handleDropDown(){
-        setDropDown(prevDropDown =>!prevDropDown)
-    }
+  function handleMouseEnter(){
+    setMouseOver(true);
+  }
 
-
+  function handleMouseOut(){
+    setMouseOver(false);
+  }
 
 
     return (
-            <div className='dropdown-container'>
-                <p href={pageId} className='header__service' onClick={handleDropDown}>
+            <div className='dropdown-container'  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseOut}>
+                <p href={pageId} className='header__service'   tabIndex={0}>
                     {title}
                     <span><CaretDown className='header__service-caretdown'/></span>
                 </p>  
                     
-                    <div className={dropDown?'dropdown__visible':'dropdown__hidden'}  >
+                    <div className={mouseOver?'dropdown__visible':'dropdown__hidden'}  >
                         {dropDownData.map((listItem,index)=> <li key={index.listItem}>
                                                                <Link to={`/${listItem.link}`}> {listItem.serviceName}</Link>
                                                             </li> )}
