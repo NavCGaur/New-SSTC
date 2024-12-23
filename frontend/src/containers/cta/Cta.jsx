@@ -7,9 +7,7 @@ function Cta() {
     <div className='cta'>
         <p>Get Started</p>
         <h1>Bookkeeping and tax Preparation< br />for Your Business</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere mi sed dui lacinia, vitae aliquet ex pulvinar.
-            Mauris facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere mi sed dui lacinia, vitae
-            aliquet ex pulvinar. Mauris facilisis
+        <p>Transform your business finances with professional bookkeeping and tax services tailored to your needs. Our expert team handles your financial records with precision, ensures tax compliance, and helps you make informed business decisions. From daily transactions to year-end tax preparation, we're here to support your business growth while you focus on what you do best.
         </p>
         <a href='#footer'>Contact Us</a>
         

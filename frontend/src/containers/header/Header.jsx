@@ -1,18 +1,65 @@
 //React imports
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 //Style imports
 import './Header.css'
 
+import {ReactComponent as MenuIcon} from '../../assets/menu.svg'
+import {ReactComponent as CloseIcon} from '../../assets/xmark.svg'
+import AccountingImage from '../../assets/accounting.png'
 
-//Image import
-import backgroundImage from '../../assets/home-background-image.jpg'
 
 //Component imports
 import Contact from '../../components/contact/Contact'
 import DropDown from '../../components/dropdown/DropDown'
 
 function Header() {
+
+    
+
+  const [menuStatus, setMenuStatus] = useState(false);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  let scrollColor = 'rgba(0, 0, 0, 0)'; 
+
+
+
+  function handleMenu(){
+    if (window.innerWidth < 900) {
+    setMenuStatus(!menuStatus);
+    }
+
+  }
+
+  // Add an event listener to handle window resize
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 900) {
+        setMenuStatus(false);
+      }
+    }
+
+    function handleScroll(){
+        const position = window.scrollY;
+        setScrollPosition(position);    
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+
+    };
+  }, []);
+
+  if (scrollPosition > 500) {
+    scrollColor = 'rgb(9, 51, 111)';
+  } 
 
   
   const circleArray = Array.from({length:14}, (_,index)=>index);
@@ -30,17 +77,15 @@ function Header() {
                         link: 'service-one'},
 
                         ];
-
-
     
 
   return (
     <header className='header' id='home'>
-        
+        {console.log("menuStatus : ",menuStatus)}
         <div class="header__opacity-overlay"></div>
    
             
-        <div className='header__fixedSection' >
+        <div className='header__fixedSection' style={{backgroundColor:scrollColor}}>
 
             <Contact />
 
@@ -50,17 +95,25 @@ function Header() {
 
             <div className='header__container'>
                 
-                <h1 className='header__logo'> SHREE SAI ENTERPRISE</h1>
+                <h1 className='header__logo'> MD ASSOCIATES</h1>
 
-                <nav className='header__navbar' >
+                <div className='navbar__menu' onClick={handleMenu}>
+                     {menuStatus? <CloseIcon className= 'navbar__close-icon'/> : <MenuIcon className='navbar__menu-icon'  / >
+                     }
+                </div>
 
-                    <a href='#home'className='header__home' >Home</a>
+                <nav className={menuStatus?'header__navbar-hidden':'header__navbar'} >
 
-                    <DropDown pageId = {'#service'} title = {'Service'} dropDownData={serviceData}/>
+                    <a href='#home'className='header__home' onClick={handleMenu}>Home</a >
 
-                    <a href='#about' className='header__about'>About Us</a>
+                    <DropDown pageId = {'#service'} title = {'Service'} dropDownData={serviceData} onClick={handleMenu} / >
 
-                    <a href='#footer' className='header__contact'>Contact Us</a>
+                    <a href='#about' className='header__about' onClick={handleMenu}>About Us</a>
+
+                    <a href='#footer' className='header__contact' onClick={handleMenu}>Contact Us</a>
+
+                    <a href='#footer'className='header__loginButton'>Login</a>
+
 
                 </nav>
 
@@ -69,8 +122,7 @@ function Header() {
         </div>   
 
         <div className='header__deisgnOne'>
-            <div className='header__designOne-left'></div>
-            <div className='header__designOne-right'></div>
+           <img src={AccountingImage} alt='accounting'/>
         </div>
 
 
@@ -82,22 +134,24 @@ function Header() {
         </div>
 
         <div className='header__centerContainer'>
-            <div className='header__smallText'>
-                <p>Tax Consulting</p>
-                <span></span>
-                <p>GST Filing</p>
-                <span></span>
-                <p>Auditing</p>
-            </div>
+          
 
-            <h1 className='header__title'> Accounting & Tax <br/>Consulting</h1>
+            <h1 className='header__title'> Expert Accounting <br/><span className='header__title-small'>Tailored Solutions</span></h1>
 
             <a href='#footer'className='header__centerButton'>Contact Us
 
             </a>
 
         </div>
-        
+
+     
+        <div className='header__smallText'>
+        <p>Tax Consulting</p>
+        <span></span>
+        <p>GST Filing</p>
+        <span></span>
+        <p>Licences and Registrations</p>
+        </div>
 
             
     </header>
@@ -106,10 +160,3 @@ function Header() {
 
 export default Header
 
-
-/*
-<img src={backgroundImage} className='header__backgroundImage' alt='background'></img>
-
-        <div className='imageBlueColor'></div>
-
-*/

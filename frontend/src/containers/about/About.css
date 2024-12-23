@@ -7,6 +7,7 @@
 
 }
 
+
 .about__container{
     width: 85vw;
     display: flex;
@@ -68,7 +69,7 @@
     max-width: 37%;
     height: 70%;
     position: absolute;
-    top: -7rem;
+    top: 12rem;
     right: 10%;
     display: grid;
     grid-template-columns: repeat( 2, 1fr  );
@@ -83,15 +84,10 @@
 }
 
 .about__rightSection > :nth-child(2) >div:first-of-type{
-    padding-top: 2rem;
     margin-left: 1rem;
 }
 
 
-.about__rightSection > :nth-child(4) >div:first-of-type{
-    padding-top: 2rem;  
-    margin-left: 1rem;
-}
 
 .about__rightSection .card__image{
     display: flex;
@@ -101,6 +97,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 5px;
+    margin-top: 2rem;
 }
 
 .about__rightSection .card__para{

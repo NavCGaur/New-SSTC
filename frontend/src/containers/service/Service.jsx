@@ -6,7 +6,7 @@ import image1 from '../../assets/serviceimage1.png'
 import image2 from '../../assets/serviceimage2.png'
 import image3 from '../../assets/serviceimage3.png'
 import image4 from '../../assets/serviceimage1.png'
-import image5 from '../../assets/serviceimage2.png'
+import image5 from '../../assets/serviceimage1.png'
 import image6 from '../../assets/serviceimage3.png'
 
 import {ReactComponent as RightArrow} from '../../assets/rightarrow.svg'
@@ -19,39 +19,50 @@ function Service() {
         {
             image: image1,
             title: 'GST Registration',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, libero necmollis eleifend, nunc.',
+            description: 'Register your business for GST seamlessly with expert assistance. Ensure compliance, claim input tax credits, expand your business legally.',
+            service: 'Start GST Registration'
         },
         {
             image: image2,
             title: 'MSME Registration',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, libero necmollis eleifend, nunc.',
+            description: 'Simplify your MSME registration with our expert support. Gain government benefits, tax subsidies, and exclusive schemes for your business growth.',
+            service: 'Start MSME Registration'
+
         },
         {
             image: image3,
-            title: 'Accounting & BookKeeping',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, libero necmollis eleifend, nunc.',
+            title: 'Business Entity Registration',
+            description: 'Company, LLP, or Partnership Firm registration with expert guidance. Compliance, credibility, opportunities for growth with legal framework.',
+            service: 'Start Business Registration'
+
         },
         {
             image: image4,
-            title: 'GST Registration',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, libero necmollis eleifend, nunc.',
+            title: 'GST Return Filing',
+            description: 'Ensure timely and accurate GST return filing with our expert services, helping you stay compliant and avoid penalties.',
+            service: 'Start GST Filing'
+
         },
 
         {
             image: image5,
-            title: 'MSME Registration',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, libero necmollis eleifend, nunc.',
-        },
+            title: 'Income Tax Return Filing (ITR)',
+            description: 'File your Income Tax Returns (ITR) accurately and on time with our expert assistance, ensuring compliance and maximizing refunds.',
+            service: 'Start ITR Filing'
+
+        },  
         {
             image: image6,
             title: 'Accounting & BookKeeping',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, libero necmollis eleifend, nunc.',
+            description: 'Manage your finances efficiently with our professional accounting and bookkeeping services, ensuring accurate records and timely reports.',
+            service: 'Start Accounting & Bookkeeping'
+
         },
 
 
 ]
 
-  return (
+  return (  
     <div className='service' id='service'>
         <div className='service__container'>
 
@@ -67,7 +78,7 @@ function Service() {
                 <div className='service__card'>
                     <Card image={card.image} title={card.title} description={card.description}/>
                     <a href='#' className='service__card-link'>
-                        <p>Read More</p>
+                        <p>{card.service}</p>
                         <RightArrow className='service__rightarrow'/>
                         
                     </a>

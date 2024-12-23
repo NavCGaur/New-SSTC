@@ -77,7 +77,6 @@
     align-items: center;
   
     max-width: 20rem;
-    border: 1px solid rgb(212, 211, 211);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-bottom: 4rem;
@@ -129,7 +128,7 @@
     color: #717275;
     margin-bottom: 50px;
     font-size: 2rem;
-    text-decoration: underline;
+    text-decoration: underline!important;
 }
 
 

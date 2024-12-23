@@ -61,9 +61,9 @@ function Footer() {
       <div className='footer__botttomSection'>
         <div className='footer__contact'>
             <div className='footer__contact-text'>
-              <h1>SHRI SAI ENTERPRISE</h1>
+              <h1>MD ENTERPRISE</h1>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac diam quis est suscipit aliquam.Lorem ipsum lor sit amet, consectetur adipiscing elit. Suspendisse acdiam quis est suscipit aliquam.</p>
+              <p>Your trusted partner for comprehensive accounting and taxation services in Mumbai.</p>
 
             </div>
 
@@ -75,7 +75,7 @@ function Footer() {
               <div className='footer__contact-container'>
                 <div className='footer__contact-phoneEmail'>
                   <h3>Phone: +91 9874563211</h3>
-                  <h3>Email: jitendra@sstc.co.in</h3>
+                  <h3>Email: mithilesh@md.co.in</h3>
                 </div>
 
               </div>
@@ -100,7 +100,7 @@ function Footer() {
 
         </div>
         <div className='footer__copyright'>
-          <p>©2024 Shri Sai Enterprise. All rights reserved.</p>
+          <p>©2024 MD Enterprise. All rights reserved.</p>
         </div>
       </div>
 

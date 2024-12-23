@@ -6,8 +6,6 @@ import leftSectionImage  from '../../assets/leftsectionimage.jpg'
 
 import image1 from '../../assets/cardimage1.jpg'
 import image2 from '../../assets/cardimage2.png'
-import image3 from '../../assets/cardimage3.png'
-import image4 from '../../assets/cardimage4.png'
 
 
 
@@ -19,23 +17,14 @@ function About() {
                         {
                             image: image1,
                             title: 'Our Goal',
-                            description: 'Long established fact that reader',
+                            description: 'Deliver reliable financial solutions for your success.',
                         },
                         {
                             image: image2,
                             title: 'Our Vision',
-                            description: 'Long established fact that reader',
+                            description: 'Transform financial challenges into growth opportunities.',
                         },
-                        {
-                            image: image3,
-                            title: 'Our Mission',
-                            description: 'Long established fact that reader',
-                        },
-                        {
-                            image: image4,
-                            title: 'Our Team',
-                            description: 'Long established fact that reader',
-                        },
+                    
 
 
     ]
@@ -53,12 +42,12 @@ function About() {
 
                 <h1>Reliable & Cost<br /> Efficient Consultant</h1>
 
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique hic, non in delectus tempore eos a veritatis alias voluptatum reiciendis laudantium ab autem omnis pariatur fugit repellat blanditiis saepe quos?</p>
+                <p>At MD Enterprise, we are more than just accountants — we are your financial partners. With years of expertise in accounting, tax planning, and business advisory, we empower individuals and businesses to make informed financial decisions and achieve their goals.</p>
 
                 <div className='about__imageContainer'>
                     <img src={leftSectionImage} alt='tax calculation'></img>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum minus recusandae sit maiores blanditiis voluptates cum non mollitia sapiente nostrum hic explicabo saepe quisquam culpa, vel ea! Aut, vitae consequatur.   </p>
+                    <p>Our mission is to simplify the complexities of finance so that you can focus on what matters most — growing your business and securing your financial future. Whether you're a small business owner, a startup, or an individual looking for reliable financial guidance, our dedicated team is here to provide tailored solutions that meet your unique needs.   </p>
 
                 </div>
 

@@ -1,51 +1,71 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
-require("dotenv").config();
+import express from 'express';
+import dotenv from "dotenv";
+import userRoutes from "./routes/user.js"
+import initializeDueDateChecker from './jobs/dueDateChecker.js';
+
+import { generateMockData } from './MockDataGenerator.js';
+
+import   UserData from "./data/index.js";
+
+import User from "./models/User.js"
+
+
+import connectMongoDB from "./config/db.js"
+
+dotenv.config();
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: "smtp.gmail.com", // Corrected host
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.USER,
-      pass: process.env.APP_PASSWORD,
-    },
+// Manually set CORS headers to allow cross-origin requests from localhost:3000
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Allow only your frontend origin
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage,sentry-trace'); // Allow custom headers if any
+  next();
 });
 
-app.post('/send-email', async (req, res) => {
-    const { firstName, lastName, email, phone, message } = req.body;
-    console.log('Received request:', { firstName, lastName, email, phone, message}); // Log received data
-
-    const mailOptions = {
-      from: {
-        name: 'Naveen Gaur',
-        address: process.env.USER
-      },
-      to: "vertigo1112@gmail.com, navcg05@yahoo.co.in",
-      subject: `New message from ${firstName} ${lastName}`,
-      text: `From: ${firstName} ${lastName}\nEmail: ${email} \nPhone Number: ${phone}\n\n Message: ${message}`,
-      html: `<p><strong>From:</strong> ${firstName} ${lastName}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Phone Number:</strong> ${phone}</p>
-             <p><strong>Message:</strong> ${message}</p>`,
-    };
-
-    try {
-        console.log('Attempting to send email...');
-        await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully');
-        res.status(200).json({ message: 'Email sent successfully' });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ message: 'Error sending email', error: error.message });
-    }
+// Handle preflight OPTIONS requests
+app.options('*', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage, sentry-trace');
+  res.status(200).end();
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.use((req, res, next) => {
+  console.log('Incoming request:', {
+    method: req.method,
+    path: req.path,
+    body: req.body
+  });
+  next();
+});
+app.use("/users",userRoutes);
+
+
+
+
+//generateMockData();
+
+
+
+/*CONNECT TO MONGODB AND START SERVER*/
+const startServer = async () => {
+  await connectMongoDB(); // Wait for MongoDB to connect
+  const PORT = process.env.PORT || 9001;
+  app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
+
+
+  //User.insertMany(UserData);
+
+  initializeDueDateChecker();
+
+
+
+};
+
+
+
+
+startServer(); 

@@ -30,8 +30,11 @@
 .cta p:last-of-type{
     width: 60%;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
+    letter-spacing: 0.4px;
+    line-height: 2rem;
+    font-family: Inter, sans-serif;
 }
 
 .cta a{
