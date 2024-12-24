@@ -60,6 +60,15 @@ export const getUser = async (req, res) => {
   }
 };
 
+export const getAllUsers = async (req, res) => { 
+  try { const users = await User.find(); 
+    res.status(200).json(users); 
+  } 
+  catch (error) 
+  { res.status(500).json({ message: error.message });
+ } 
+};
+
 
 export const getUserById = async (req, res) => {
   const { id } = req.params; // Extract ID from the request parameters
@@ -150,3 +159,6 @@ export const deleteUserById = async (req, res) => {
     return res.status(500).json({ success: false, message: 'Internal server error' });
   }
 };
+
+
+

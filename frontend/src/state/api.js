@@ -3,8 +3,15 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
     reducerPath: "adminApi",
-    tagTypes: ["User"],
+    tagTypes: ["User", "Sales"],
     endpoints: (build) => ({
+      getAllUsers: build.query({
+        query: () => ({
+            url: "allusers",
+            method: "GET",
+          })
+        }),
+
       getUser: build.query({
         query: ({ page, pageSize, sort, search }) => ({
             url: "users",
@@ -51,6 +58,30 @@ export const api = createApi({
         invalidatesTags: ['User'],
       }),
 
+      getSales: build.query({ 
+        query: () => ({
+          url:"/sales",
+          method: "GET"}), 
+        providesTags: ["Sales"], 
+      }),
+
+      getPaidServiceCounts: build.query({
+        query:() => ({
+          url:"/sales/paidservice",
+          method: "GET"
+        })
+
+      }),
+
+      getServiceCounts: build.query({
+        query:() => ({
+          url:"/users/servicecount",
+          method: "GET"
+        })
+
+      })
+
+
     }),
    
 
@@ -61,7 +92,12 @@ export const api = createApi({
     useGetUserByIdQuery,
     useCreateUserMutation,
     useEditUserMutation,
-    useDeleteUserMutation
+    useDeleteUserMutation,
+    useGetAllUsersQuery,
+    useGetSalesQuery,
+    useGetPaidServiceCountsQuery,
+    useGetServiceCountsQuery
+
   } = api;
   
 

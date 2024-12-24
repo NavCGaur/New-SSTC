@@ -11,15 +11,16 @@ const serviceSchema = new mongoose.Schema({
       "GST Return Filing", 
       "Income Tax Return Filing", 
       "Accounting & BookKeeping"
-    ] // Allowed service names
+    ]
   }, 
   paymentStatus: { 
     type: String, 
     enum: ["Paid", "Pending"], 
     default: "Pending" 
   }, 
-  nextDueDate: { type: Date }, // When the next service is due
-  notes: { type: String }, // Optional field for additional details about the service
+  nextDueDate: { type: Date },
+  notes: { type: String },
+  paidOn: { type: Date } // New field for payment date
 });
 
 const userSchema = new mongoose.Schema({
@@ -76,7 +77,6 @@ const userSchema = new mongoose.Schema({
   // Services
   services: [serviceSchema], // Embedded services schema
 
-  // Timestamps
 }, { timestamps: true, collection: 'users' });
 
 const User = mongoose.model('User', userSchema);

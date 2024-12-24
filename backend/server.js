@@ -1,6 +1,9 @@
 import express from 'express';
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.js"
+import { getAllUsers } from './controllers/user.js';
+import salesRoutes from "./routes/sales.js"
+
 import initializeDueDateChecker from './jobs/dueDateChecker.js';
 
 import { generateMockData } from './MockDataGenerator.js';
@@ -42,7 +45,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/users",userRoutes);
-
+app.use("/", salesRoutes);
+app.get('/allusers', getAllUsers);
 
 
 
@@ -56,12 +60,37 @@ const startServer = async () => {
   const PORT = process.env.PORT || 9001;
   app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
 
-
   //User.insertMany(UserData);
+  
+  
+  /*const getRandomDate = (start, end) => {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  };
+  
+  const updateUsers = async () => {
+    const users = await User.find();
+  
+    for (let user of users) {
+      for (let service of user.services) {
+        if (service.paymentStatus === "Paid") {
+          service.paidOn = getRandomDate(new Date(Date.now() - 6 * 30 * 24 * 60 * 60 * 1000), new Date());
+        } else {
+          service.paidOn = ""; // Set to empty for Pending payment status
+        }
+      }
+      await user.save();
+    }
+  
+  };
+  
+  updateUsers().then(() => {
+    console.log('Users updated successfully with random paidOn dates.');
+  }).catch((error) => {
+    console.error('Error updating users:', error);
+  });
+   
 
-  initializeDueDateChecker();
-
-
+  initializeDueDateChecker();*/
 
 };
 
