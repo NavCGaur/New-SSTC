@@ -8,6 +8,7 @@ import { addTestAdmin } from './MockDataGenerator.js';
 import {sendEmail} from './controllers/email.js'
 import {authenticateToken, authorizeAdmin} from './middleware/authMiddleware.js'
 
+
 import initializeDueDateChecker from './jobs/dueDateChecker.js';
 //import { generateMockData } from './MockDataGenerator.js';
 import   UserData from "./data/index.js";
@@ -26,7 +27,7 @@ console.log("Allowed Frontend URL:", process.env.FRONTEND_URL);
 
 // Manually set CORS headers to allow cross-origin requests from localhost:3000
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL); // Allow only your frontend origin
+    res.setHeader('Access-Control-Allow-Origin', 'https://mdassociates.onrender.com/'); // Allow only your frontend origin
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage,sentry-trace'); // Allow custom headers if any
     res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, Authorization headers, etc.)
@@ -36,7 +37,7 @@ console.log("Allowed Frontend URL:", process.env.FRONTEND_URL);
 
   // Handle preflight OPTIONS requests
   app.options('*', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
+    res.setHeader('Access-Control-Allow-Origin', 'https://mdassociates.onrender.com');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage, sentry-trace');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
