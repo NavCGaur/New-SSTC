@@ -7,7 +7,7 @@ import authRoutes from "./routes/auth.js"
 import { addTestAdmin } from './MockDataGenerator.js';
 import {sendEmail} from './controllers/email.js'
 import {authenticateToken, authorizeAdmin} from './middleware/authMiddleware.js'
-
+import cors from 'cors';
 
 import initializeDueDateChecker from './jobs/dueDateChecker.js';
 //import { generateMockData } from './MockDataGenerator.js';
@@ -22,27 +22,21 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+const corsOptions = {
+  origin: 'https://mdassociates.onrender.com', // Allow only your frontend origin
+  methods: 'GET, POST, PUT, DELETE, OPTIONS', // Allowed methods
+  allowedHeaders: 'Content-Type, Authorization, baggage, sentry-trace', // Allow custom headers if any
+  credentials: true, // Allow credentials (cookies, Authorization headers, etc.)
+};
+
+app.use(cors(corsOptions));
+// Handle preflight OPTIONS requests 
+app.options('*', cors(corsOptions));
+
 console.log("Allowed Frontend URL:", process.env.FRONTEND_URL);
 
 
-// Manually set CORS headers to allow cross-origin requests from localhost:3000
-  app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://mdassociates.onrender.com/'); // Allow only your frontend origin
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage,sentry-trace'); // Allow custom headers if any
-    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, Authorization headers, etc.)
-
-    next();
-  });
-
-  // Handle preflight OPTIONS requests
-  app.options('*', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://mdassociates.onrender.com');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage, sentry-trace');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.status(200).end();
-  });
+ 
 
 app.use((req, res, next) => {
   console.log('Incoming request:', {
@@ -52,6 +46,8 @@ app.use((req, res, next) => {
   });
   next();
 });
+
+
 
 // Routes needing Middleware
 app.use("/users", authenticateToken, authorizeAdmin, userRoutes);
@@ -113,3 +109,9 @@ const startServer = async () => {
 startServer(); 
 
 export default app;
+
+
+
+
+
+
