@@ -1,6 +1,7 @@
 services:
   - type: web
     name: frontend
-    env: node
+    env: static
     buildCommand: npm run build
-    startCommand: npm run start
+    staticPublishing: true
+    staticBuildPath: /build
