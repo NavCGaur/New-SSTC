@@ -12,6 +12,7 @@ import AccountingImage from '../../assets/accounting.png'
 //Component imports
 import Contact from '../../components/contact/Contact'
 import DropDown from '../../components/dropdown/DropDown'
+import { Link } from 'react-router-dom'
 
 function Header() {
 
@@ -64,24 +65,29 @@ function Header() {
   
   const circleArray = Array.from({length:14}, (_,index)=>index);
 
-  const serviceData = [{serviceName:'This is service one', 
-                        link: 'service-one'},
+  const serviceData = [{serviceName:'GST Registration', 
+                        link: '/gstregistration'},
 
-                       {serviceName:'This is service two', 
-                        link: 'service-one'},
+                       {serviceName:'MSME Registration', 
+                        link: '/gstregistration'},
+                      
+                      {serviceName:'Business Entity Registration', 
+                        link: '/gstregistration'},
                     
-                       {serviceName:'This is service three', 
-                        link: 'service-one'},
+                       {serviceName:'GST Return Filing', 
+                        link: '/gstregistration'},
 
-                       {serviceName:'This is service four', 
-                        link: 'service-one'},
+                       {serviceName:'Income Tax Return Filing', 
+                        link: '/gstregistration'},
+
+                      {serviceName:'Accounting & BookKeeping', 
+                        link: '/gstregistration'},
 
                         ];
     
 
   return (
     <header className='header' id='home'>
-        {console.log("menuStatus : ",menuStatus)}
         <div class="header__opacity-overlay"></div>
    
             
@@ -112,7 +118,7 @@ function Header() {
 
                     <a href='#footer' className='header__contact' onClick={handleMenu}>Contact Us</a>
 
-                    <a href='#footer'className='header__loginButton'>Login</a>
+                    <Link to='/service/login'className='header__loginButton'>Login</Link>
 
 
                 </nav>

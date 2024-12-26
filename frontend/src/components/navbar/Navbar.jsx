@@ -10,7 +10,8 @@ import {
 import FlexBetween from "../flexbetween/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "../../state";
-import profileImage from "../../assets/profile.jpg";
+import profileImage from "../../assets/mdpic.png";
+import Logout from "../../containers/auth/logout/Logout";
 import {
   AppBar,
   Button,
@@ -122,7 +123,10 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Logout />
+
+              </MenuItem>
             </Menu>
           </FlexBetween>
 

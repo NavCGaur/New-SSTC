@@ -4,7 +4,7 @@ html{
   scroll-behavior: smooth;
 
 }
-.layout-container * {
+.FrontendLayout-container * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,7 +13,7 @@ html{
   sans-serif;
 }
 
-.layout-container a {
+.FrontendLayout-container a {
   text-decoration: none;
   color: unset;
   cursor: pointer;

@@ -30,21 +30,15 @@ const Dashboard = () => {
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data: users, isLoading, isError } = useGetAllUsersQuery();
 
-  
-  const totalUsers = users? users.length:"0";
-  const totalServices = users ? users.reduce((sum, user) => sum + user.services.length, 0)
-  : 0;
-  
+  const totalUsers = users ? users.length : "0";
+  const totalServices = users ? users.reduce((sum, user) => sum + user.services.length, 0) : 0;
 
-
-  // Function to handle CSV download
   const handleDownload = () => {
     if (isLoading || isError || !users) {
       alert("Data is not available yet.");
       return;
     }
 
-    // Map user data to a CSV-friendly format
     const csvData = users.map((user) => ({
       Name: user.name || '',
       Email: user.email || '',
@@ -58,7 +52,6 @@ const Dashboard = () => {
       Status: user.services ? user.services.map((service) => service.paymentStatus).join(", ") : '',
     }));
 
-    // Convert to CSV and trigger download
     const csv = Papa.unparse(csvData);
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
@@ -67,14 +60,12 @@ const Dashboard = () => {
     link.href = url;
     link.download = "users_report.csv";
     link.click();
-  
   };
 
   return (
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
         <Box>
           <Button
             sx={{
@@ -96,75 +87,70 @@ const Dashboard = () => {
         mt="20px"
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="160px"
         gap="20px"
         sx={{
           "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 12" },
         }}
       >
-        {/* ROW 1 */}
-        <StatBox
-          title="Total Customers"
-          value={users && totalUsers}
-          increase="+14%"
-          description="Since last month"
-          icon={
-            <PersonAdd
-              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
-            />
-          }
-        />
-        <StatBox
-          title="Total Sales"
-          value={users && totalServices}
-          increase="+21%"
-          description="Since last month"
-          icon={
-            <PointOfSale
-              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
-            />
-          }
-        />
+        {/* First row - Stats and Pie Chart */}
+        <Box
+          gridColumn="span 4"
+          display="grid"
+          gridTemplateColumns="repeat(2, 1fr)"
+          gap="20px"
+        >
+          <StatBox
+            title="Total Customers"
+            value={users && totalUsers}
+            increase="+14%"
+            description="Since last month"
+            icon={
+              <PersonAdd
+                sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+              />
+            }
+          />
+          <StatBox
+            title="Total Sales"
+            value={users && totalServices}
+            increase="+21%"
+            description="Since last month"
+            icon={
+              <PointOfSale
+                sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+              />
+            }
+          />
+          <StatBox
+            title="Monthly Sales"
+            value={users && totalUsers}
+            increase="+5%"
+            description="Since last month"
+            icon={
+              <Email
+                sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+              />
+            }
+          />
+          <StatBox
+            title="Yearly Sales"
+            value={users && 100}
+            increase="+43%"
+            description="Since last year"
+            icon={
+              <Traffic
+                sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+              />
+            }
+          />
+        </Box>
+
+        {/* Pie Chart */}
         <Box
           gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={theme.palette.background.alt}
-          p="1rem"
-          borderRadius="0.55rem"
-        >
-          <OverviewChart isDashboard={true} />
-        </Box>
-        <StatBox
-          title="Monthly Sales"
-          value={users && totalUsers}
-          increase="+5%"
-          description="Since last month"
-          icon={
-            
-            <Email
-              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
-            />
-          }
-        />
-        <StatBox
-          title="Yearly Sales"  
-          value={users && 100}
-          increase="+43%"
-          description="Since last year"
-          icon={
-            <Traffic
-              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
-            />
-          }
-        />
-      </Box>
-      <Box
-          gridColumn="span 4"
-          gridRow="span 3"
           backgroundColor={theme.palette.background.alt}
           p="1.5rem"
           borderRadius="0.55rem"
-          mt="2rem"
         >
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
             Sales By Category
@@ -179,8 +165,39 @@ const Dashboard = () => {
             made for this year and total sales.
           </Typography>
         </Box>
+
+        {/* Line Chart - Full Width */}
+        <Box
+          
+          gridColumn="span 12"
+          gridRow="span 2"
+          height="400px"
+          backgroundColor={theme.palette.background.alt}
+          p="1rem"
+          borderRadius="0.55rem"
+          mb="3rem"
+          letterSpacing="0.3px"        >
+          <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
+            Revenue & Profit Overview
+          </Typography>
+          <Box height="100%">  
+            <OverviewChart isDashboard={true} />
+          </Box>
+          <Typography
+            p="0 0.6rem"
+            fontSize="1rem"
+            sx={{ color: theme.palette.secondary[200] }}
+          >
+            Monthly revenue and profit trends showing the overall financial performance 
+            across different time periods. The chart highlights seasonal patterns and 
+            year-over-year growth in sales.
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 };
 
 export default Dashboard;
+
+

@@ -72,8 +72,8 @@ const BreakdownChart = ({ isDashboard = false }) => {
         colors={{ datum: "data.color" }}
         margin={
           isDashboard
-            ? {  top: 20, right: 80, bottom: 80, left: 50 }
-            : { top:20, right: 80, bottom: 60, left: 80 }
+            ? {  top: 20,  bottom: 80, left: 120 }
+            : { top:20,  bottom: 60, left: 120 }
         }
         sortByValue={true}
         innerRadius={0.45}
@@ -97,7 +97,6 @@ const BreakdownChart = ({ isDashboard = false }) => {
             anchor: "left",
             direction: "column",
             justify: false,
-            translateX: isDashboard ? 40 : 0,
             itemsSpacing: 16,
             itemWidth: 85,
             itemHeight: 24,
@@ -126,8 +125,8 @@ const BreakdownChart = ({ isDashboard = false }) => {
         pointerEvents="none"
         sx={{
           transform: isDashboard
-            ? "translate(-50%, -160%)"
-            : "translate(-50%, -100%)",
+            ? "translate(120%, -180%)"
+            :"translate(120%, -180%)",
         }}
       >
         <Typography variant="h6">

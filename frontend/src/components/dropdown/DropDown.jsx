@@ -37,7 +37,7 @@ function DropDown(props) {
                     
                     <div className={mouseOver?'dropdown__visible':'dropdown__hidden'}  >
                         {dropDownData.map((listItem,index)=> <li key={index.listItem}>
-                                                               <Link to={`/${listItem.link}`}> {listItem.serviceName}</Link>
+                                                               <Link to={listItem.link}> {listItem.serviceName}</Link>
                                                             </li> )}
 
 

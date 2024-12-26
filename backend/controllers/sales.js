@@ -33,7 +33,6 @@ export const getSales = async (req, res) => {
           totalSales: item.totalSales
         }));
     
-        console.log(formattedResult);
         res.status(200).json(formattedResult);
     } catch (error) {
         console.error('Error fetching monthly paid services:', error);}

@@ -12,6 +12,7 @@ import image6 from '../../assets/serviceimage3.png'
 import {ReactComponent as RightArrow} from '../../assets/rightarrow.svg'
 
 import Card from '../../components/card/Card'
+import { Link } from 'react-router-dom'
 
 
 function Service() {
@@ -77,11 +78,11 @@ function Service() {
                 {cardData.map((card,index)=>
                 <div className='service__card'>
                     <Card image={card.image} title={card.title} description={card.description}/>
-                    <a href='#' className='service__card-link'>
+                    <Link to='/gstregistration' className='service__card-link'>
                         <p>{card.service}</p>
                         <RightArrow className='service__rightarrow'/>
                         
-                    </a>
+                    </Link>
                 </div>)}
             </div>
 

@@ -1,6 +1,9 @@
 import { faker } from '@faker-js/faker';
 import { promises as fs } from 'fs';
+import bcrypt from 'bcryptjs';
+import User from "./models/User.js"
 
+/*
 // Constants
 const SERVICES = [
   "GST Registration",
@@ -15,45 +18,6 @@ const BUSINESS_TYPES = ['Proprietorship', 'Partnership', 'LLP', 'Private Limited
 const BUSINESS_CATEGORIES = ['Manufacturer', 'Trader', 'Service Provider', 'Others'];
 const PAYMENT_STATUSES = ["Paid", "Pending"];
 const USER_ROLES = ['User', 'Admin'];
-
-// Types (if using TypeScript, uncomment these)
-/*
-interface Address {
-  street: string;
-  city: string;
-  state: string;
-  pincode: string;
-}
-
-interface BusinessDetails {
-  trade_name: string;
-  legal_name: string;
-  business_type: string;
-  business_category: string;
-  business_pan: string;
-  date_of_establishment: Date;
-  annual_turnover: number;
-}
-
-interface Service {
-  serviceName: string;
-  paymentStatus: string;
-  nextDueDate: Date;
-  notes: string;
-}
-
-interface User {
-  name: string;
-  email: string;
-  phone_number: string;
-  role: string;
-  residential_address: Address;
-  business_address: Address;
-  business_details: BusinessDetails;
-  services: Service[];
-}
-*/
-
 // Helper functions
 const generateAddress = () => ({
   street: faker.location.streetAddress(),
@@ -109,6 +73,7 @@ const generateUser = () => ({
  * @param {number} count - Number of users to generate
  * @returns {Promise<void>}
  */
+/*
 const generateMockData = async (count = 50) => {
   try {
     const users = Array.from({ length: count }, generateUser);
@@ -127,5 +92,50 @@ const generateMockData = async (count = 50) => {
 generateMockData()
   .then(() => console.log('Mock data generation completed'))
   .catch(error => console.error('Failed to generate mock data:', error));
+  */
 
-export { generateMockData };
+
+  const addTestAdmin = async () => {
+    try {
+      const hashedPassword = await bcrypt.hash('testadmin@123', 10);
+  
+      const testAdmin = new User({
+        name: 'Test Admin',
+        email: 'testadmin@example.com',
+        phone_number: '1234567890',
+        role: 'Admin',
+        password: hashedPassword,
+        residential_address: {
+          street: '123 Admin St',
+          city: 'Admin City',
+          state: 'Admin State',
+          pincode: '123456',
+        },
+        business_address: {
+          street: '123 Admin Business St',
+          city: 'Admin Business City',
+          state: 'Admin Business State',
+          pincode: '654321',
+        },
+        business_details: {
+          trade_name: 'Admin Trade',
+          legal_name: 'Admin Legal',
+          business_type: 'Private Limited',
+          business_category: 'Service Provider',
+          business_pan: 'ABCDE1234F',
+          date_of_establishment: new Date('2000-01-01'),
+          annual_turnover: 1000000,
+        },
+        services: [],
+      });
+  
+      await testAdmin.save();
+      console.log('Test admin user added successfully.');
+    } catch (error) {
+      console.error('Error adding test admin user:', error);
+    } 
+  };
+  
+  
+export { addTestAdmin }
+//export { generateMockData };

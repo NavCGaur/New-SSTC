@@ -10,7 +10,7 @@ function Contact() {
     <div className='contact'>
         <div className='contact__email'>
             <Email className='contact__email-icon'/>
-            <p contact__email-text>mithilesh@mstc.co.in</p>
+            <p contact__email-text>mithilesh@md.co.in</p>
         </div>
 
         <div className='contact__phone'>

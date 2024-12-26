@@ -19,9 +19,7 @@ function Footer() {
 
           <h1>We’d love to hear from you </h1>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec posuere mi sed dui lacinia, vitae aliquet ex pulvinar.
-            Mauris facilisis.</p>
+          <p>We believe that clear communication is the cornerstone of great service. Whether you have questions about our services, need advice on financial planning, or want to schedule a consultation, we’re here to help..</p>
 
           <Contact />
 

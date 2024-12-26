@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {ReactComponent as MenuIcon} from '../../assets/menu.svg'
 import {ReactComponent as CloseIcon} from '../../assets/xmark.svg'
-import DropDown from '../../components/dropdown/DropDown'
+import { Link } from 'react-router-dom';
 
 function ServiceNavbar() {
   
@@ -28,12 +28,7 @@ function ServiceNavbar() {
   }, []);
 
 
-  const serviceData = [
-    { serviceName: 'This is service one', link: 'service-one' },
-    { serviceName: 'This is service two', link: 'service-one' },
-    { serviceName: 'This is service three', link: 'service-one' },
-    { serviceName: 'This is service four', link: 'service-one' },
-  ];
+ 
 
   return (
 <div className='header__fixedSection' style={{ backgroundColor: '#21295c'}}>
@@ -53,10 +48,10 @@ function ServiceNavbar() {
 
         <nav className={menuStatus?'header__navbar-hidden':'header__navbar'} >
 
-            <a href='http://localhost:3000/'className='header__home' onClick={handleMenu} style={{textDecoration:'none'}} >Home</a >
+            <Link to='/'className='header__home' onClick={handleMenu} style={{textDecoration:'none'}} >Home</ Link>
 
 
-            <a href='#footer'className='header__loginButton' style={{textDecoration:'none'}}>Login</a>
+            <Link to='/service/login'className='header__loginButton' style={{textDecoration:'none'}}>Login</Link>
 
 
         </nav>

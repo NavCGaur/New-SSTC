@@ -11,9 +11,9 @@ import Footer from './containers/footer/Footer';
 
 
 
-function Layout() {
+function FrontendLayout() {
   return ( 
-    <div className="layout-container">
+    <div className="FrontendLayout-container">
         <Header />
         <About />
         <Service />
@@ -24,4 +24,4 @@ function Layout() {
   )
 }
 
-export default Layout
+export default FrontendLayout

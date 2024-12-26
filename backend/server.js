@@ -3,13 +3,14 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/user.js"
 import { getAllUsers } from './controllers/user.js';
 import salesRoutes from "./routes/sales.js"
+import authRoutes from "./routes/auth.js"
+import { addTestAdmin } from './MockDataGenerator.js';
+import {sendEmail} from './controllers/email.js'
+import {authenticateToken, authorizeAdmin} from './middleware/authMiddleware.js'
 
 import initializeDueDateChecker from './jobs/dueDateChecker.js';
-
-import { generateMockData } from './MockDataGenerator.js';
-
+//import { generateMockData } from './MockDataGenerator.js';
 import   UserData from "./data/index.js";
-
 import User from "./models/User.js"
 
 
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Allow only your frontend origin
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage,sentry-trace'); // Allow custom headers if any
+  res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, Authorization headers, etc.)
+
   next();
 });
 
@@ -33,6 +36,7 @@ app.options('*', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage, sentry-trace');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.status(200).end();
 });
 
@@ -44,24 +48,30 @@ app.use((req, res, next) => {
   });
   next();
 });
-app.use("/users",userRoutes);
-app.use("/", salesRoutes);
-app.get('/allusers', getAllUsers);
+
+// Routes needing Middleware
+app.use("/users", authenticateToken, authorizeAdmin, userRoutes);
+app.use("/sales", authenticateToken, authorizeAdmin, salesRoutes);
+app.get('/allusers', authenticateToken, authorizeAdmin, getAllUsers);
+
+// Public routes
+app.post('/send-email', sendEmail);
+app.use("/auth", authRoutes); 
 
 
-
-//generateMockData();
 
 
 
 /*CONNECT TO MONGODB AND START SERVER*/
 const startServer = async () => {
   await connectMongoDB(); // Wait for MongoDB to connect
-  const PORT = process.env.PORT || 9001;
+  const PORT = process.env.PORT || 5001;
   app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
 
   //User.insertMany(UserData);
-  
+  //generateMockData();
+  //addTestAdmin();
+
   
   /*const getRandomDate = (start, end) => {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -92,9 +102,8 @@ const startServer = async () => {
 
   initializeDueDateChecker();*/
 
+
 };
-
-
 
 
 startServer(); 

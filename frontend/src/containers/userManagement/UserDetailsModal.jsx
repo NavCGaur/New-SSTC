@@ -69,7 +69,7 @@ const UserDetailsModal = ({ open, onClose, userDetails, isLoading, theme }) => {
       >
         <Typography
           variant="subtitle2"
-          color={theme.palette.secondary[400]}
+          color={theme.palette.secondary[100]}
           gutterBottom
           sx={{ fontWeight: 600, flex: '0 0 150px' }}
         >
@@ -87,7 +87,7 @@ const UserDetailsModal = ({ open, onClose, userDetails, isLoading, theme }) => {
   
     const BasicInfoTab = () => (
       <Stack spacing={3} sx={{ px: 1 }}>
-        <DetailBox label="Name" value={userDetails?.name || 'N/A'} />
+        <DetailBox label="Name"  value={userDetails?.name || 'N/A'} />
         <DetailBox label="Email" value={userDetails?.email || 'N/A'} />
         <DetailBox label="Phone Number" value={userDetails?.phone_number || 'N/A'} />
         <DetailBox label="Role" value={userDetails?.role || 'N/A'} />

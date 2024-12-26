@@ -3,8 +3,8 @@ import { getSales, getPaidServiceCounts } from "../controllers/sales.js";
 
 const router = express.Router();
 
-router.get("/sales", getSales);
-router.get("/sales/paidservice",getPaidServiceCounts)
+router.get("/", getSales);
+router.get("/paidservice",getPaidServiceCounts)
 
 
 export default router;

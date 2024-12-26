@@ -1,0 +1,79 @@
+
+  
+  .gst-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the title and sections horizontally */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Barlow;
+  }
+  
+  .gst-section {
+    width: 90%;
+    max-width: 800px;
+  }
+  
+  .overview {
+    text-align: center; /* Center only the title and description */
+  }
+  
+  .overview h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 8rem;
+  }
+  
+  .overview p {
+    font-size: 1.5rem;
+    letter-spacing: 0.4px;
+    color: #333;
+
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  .documents {
+    text-align: left; /* Align the list and section content to the left */
+  }
+  
+  .documents h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .documents ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #333;
+  }
+  
+  .documents li {
+    font-size: 1.5rem;
+    margin: 5px 0;
+    letter-spacing: 0.4px;
+    line-height: 2rem;
+
+  }
+  
+ 
+  
+  .gst-section-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    margin-top: 3rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .gst-section-button:hover {
+    background-color: #0056b3;
+  }
+  
