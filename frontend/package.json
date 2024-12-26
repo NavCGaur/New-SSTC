@@ -30,7 +30,6 @@
     "react-redux": "^9.2.0",
     "react-router": "^6.24.1",
     "react-router-dom": "^6.28.0",
-    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -61,11 +60,6 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
-    "react-scripts": "5.0.1"
-
-  },
-  "engines": {
-  "node": "16.x"
-}
-
+    "react-scripts": "^5.0.1"
+  }
 }
