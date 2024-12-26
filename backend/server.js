@@ -33,6 +33,8 @@ app.use(cors(corsOptions));
 // Handle preflight OPTIONS requests 
 app.options('*', cors(corsOptions));
 
+app.get('/test', (req, res) => { res.send('Test endpoint hit'); });
+
 console.log("Allowed Frontend URL:", process.env.FRONTEND_URL);
 
 
