@@ -23,7 +23,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://mdassociates.onrender.com/', // Allow only your frontend origin
+  origin: '*', // Allow only your frontend origin
   methods: 'GET, POST, PUT, DELETE, OPTIONS', // Allowed methods
   allowedHeaders: 'Content-Type, Authorization, baggage, sentry-trace', // Allow custom headers if any
   credentials: true, // Allow credentials (cookies, Authorization headers, etc.)
