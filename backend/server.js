@@ -21,24 +21,27 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+console.log("Allowed Frontend URL:", process.env.FRONTEND_URL);
+
+
 // Manually set CORS headers to allow cross-origin requests from localhost:3000
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Allow only your frontend origin
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage,sentry-trace'); // Allow custom headers if any
-  res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, Authorization headers, etc.)
+  app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL); // Allow only your frontend origin
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage,sentry-trace'); // Allow custom headers if any
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, Authorization headers, etc.)
 
-  next();
-});
+    next();
+  });
 
-// Handle preflight OPTIONS requests
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage, sentry-trace');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.status(200).end();
-});
+  // Handle preflight OPTIONS requests
+  app.options('*', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, baggage, sentry-trace');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.status(200).end();
+  });
 
 app.use((req, res, next) => {
   console.log('Incoming request:', {
@@ -107,3 +110,5 @@ const startServer = async () => {
 
 
 startServer(); 
+
+export default app;
