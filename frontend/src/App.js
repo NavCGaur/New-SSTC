@@ -18,12 +18,15 @@ import About from './containers/about/About';
 import ServiceList from './containers/serviceList/ServiceList'
 import AdminUserDashboard from './containers/userManagement/AdminUserDashboard'
 import {ProtectedRoute} from './protected/ProtectedRoute'
+import PaymentInterface from './containers/payment/PaymentInterface'
 
 import FileUpload  from './components/fileupload/FileUpload';
 import Login from './containers/auth/login/Login';
 import GSTRegistration from './containers/serviceForms/GstRegistration';
 import Footer from './containers/footer/Footer';
 import UnAuthorized from './containers/auth/unAuthoruzed/UnAuthorized';
+import CreatePaymentLink from './containers/payment/CreatePaymentLink';
+import TestPaymentPage from './containers/payment/TestPaymentPage';
 
 // Separate component for MUI-styled routes
 const MUIRoutes = () => {
@@ -44,6 +47,10 @@ const MUIRoutes = () => {
           <Route path='/service-list' element={<ServiceList/>} />
           <Route path="/login" element={<Login />} />
           <Route path='/unauthorized' element={<UnAuthorized />} />
+          <Route path='/payment' element={<PaymentInterface />} />
+          <Route path="/createpayment/:userId" element={<CreatePaymentLink />} />
+          <Route path='/testpayment' element={<TestPaymentPage />} />
+
         </Routes>
       </CssBaseline>
     </ThemeProvider>

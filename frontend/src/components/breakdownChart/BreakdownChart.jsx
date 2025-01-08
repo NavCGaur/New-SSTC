@@ -119,7 +119,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
       <Box
         position="absolute"
         top="50%"
-        left="49%"
+        left="52%"
         color={theme.palette.secondary[400]}
         textAlign="center"
         pointerEvents="none"

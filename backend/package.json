@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@faker-js/faker": "^9.3.0",
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -10,6 +11,7 @@
     "mongoose": "^8.9.1",
     "multer": "^1.4.5-lts.1",
     "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.16",
     "path": "^0.12.7",
     "pdf-parse": "^1.1.1",

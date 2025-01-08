@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { DataGrid } from "@mui/x-data-grid";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { useGetUserQuery, useGetUserByIdQuery } from "../../state/api";
@@ -7,10 +8,11 @@ import DataGridCustomToolbar from "../../components/datagridcustomtoolbar/DataGr
 import UserDetailsModal from "./UserDetailsModal";
 import UserEditModal from "./UserEditModal";
 import UserDeleteModal from "./UserDeleteModal";
+import CreatePaymentLink from "../payment/CreatePaymentLink";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete"
-
+import DeleteIcon from "@mui/icons-material/Delete";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
 import {
   Box,
@@ -35,10 +37,12 @@ const AdminUserDashboard = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
   const [viewModalOpen, setViewModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+
 
   const [newUser, setNewUser] = useState({
     name: "",
@@ -195,6 +199,18 @@ const AdminUserDashboard = () => {
           Delete User
         </Button>
 
+        <Link to={`/service/createpayment/${selectedUser}`}>
+
+          <Button
+            variant="contained"
+            startIcon={<CurrencyRupeeIcon />}
+            disabled={selectedRows.length === 0}
+            >
+            Create Payment
+          </Button>
+        </Link>
+
+
       </Stack>
 
 
@@ -284,6 +300,14 @@ const AdminUserDashboard = () => {
         open={deleteModalOpen}
         onClose={() => setDeleteModalOpen(false)}
         selectedUsers={selectedRows}
+      />
+
+      <CreatePaymentLink
+        open={paymentModalOpen}
+        onClose={() => setPaymentModalOpen(false)}
+        userDetails={userDetails}
+        isLoading={isLoading}
+        theme={theme}
       />
 
       <Snackbar 

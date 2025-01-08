@@ -4,6 +4,7 @@ import userRoutes from "./routes/user.js"
 import { getAllUsers } from './controllers/user.js';
 import salesRoutes from "./routes/sales.js"
 import authRoutes from "./routes/auth.js"
+import paymentRoutes from "./routes/payment.js"
 import { addTestAdmin } from './MockDataGenerator.js';
 import {sendEmail} from './controllers/email.js'
 import {authenticateToken, authorizeAdmin} from './middleware/authMiddleware.js'
@@ -23,14 +24,13 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: '*', // Allow only your frontend origin
+  origin: process.env.FRONTEND_URL, // Allow only your frontend origin
   methods: 'GET, POST, PUT, DELETE, OPTIONS', // Allowed methods
   allowedHeaders: 'Content-Type, Authorization, baggage, sentry-trace', // Allow custom headers if any
   credentials: true, // Allow credentials (cookies, Authorization headers, etc.)
 };
 
 app.use(cors(corsOptions));
-// Handle preflight OPTIONS requests 
 app.options('*', cors(corsOptions));
 
 app.get('/test', (req, res) => { res.send('Test endpoint hit'); });
@@ -59,8 +59,7 @@ app.get('/allusers', authenticateToken, authorizeAdmin, getAllUsers);
 // Public routes
 app.post('/send-email', sendEmail);
 app.use("/auth", authRoutes); 
-
-
+app.use('/payment', paymentRoutes);
 
 
 

@@ -592,7 +592,7 @@ const UserEditModal = ({ open, onClose, userDetails, isLoading, theme }) => {
                 defaultValue={service.paymentStatus}
                 inputRef={serviceRefs[index]?.paymentStatus}
                 label="Status"
-                disabled
+                
               >
                 <MenuItem value="Pending">Pending</MenuItem>
                 <MenuItem value="Paid">Paid</MenuItem>
