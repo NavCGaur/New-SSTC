@@ -21,11 +21,12 @@ export const paymentApi = createApi({
           method: 'POST',
           body: { userId, selectedServices }
         }),
-      }),
+      })
   }),
 });
 
 export const {
   useCreatePaypalOrderMutation,
   useCapturePaypalPaymentMutation,
+
 } = paymentApi;

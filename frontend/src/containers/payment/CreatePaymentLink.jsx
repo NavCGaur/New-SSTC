@@ -28,7 +28,7 @@ import { useGetUserByIdQuery } from "../../state/api";
 const SERVICE_PRICES = {
   "GST Registration": 1499,
   "MSME Registration": 999,
-  "Business Entity Registration": 2499,
+  "Business Entity Registration": 1,
   "GST Return Filing": 799,
   "Income Tax Return Filing": 999,
   "Accounting & BookKeeping": 1999

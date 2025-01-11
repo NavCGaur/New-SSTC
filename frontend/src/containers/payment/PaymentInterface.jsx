@@ -15,8 +15,8 @@ import {
 } from '@mui/material';
 import PayPalPayment from './paypal/PaypalPayment';
 import StripePayment from './stripe/StripePayment';
-import PaytmPayment from './paytm/PaytmPayment';
 import ServiceNavbar from '../serviceForms/ServiceNavbar';
+import DirectUPIPayment from './UPI/DirectUPIPayment';
 
 const PaymentInterface = ({ 
   selectedServices, // Array of selected services with their details
@@ -37,8 +37,8 @@ const PaymentInterface = ({
         return <PayPalPayment selectedServices= {selectedServices} userId={userId} amount={amount} orderId={orderId} />;
       case 'stripe':
         return <StripePayment amount={amount} orderId={orderId} />;
-      case 'paytm':
-        return <PaytmPayment amount={amount} orderId={orderId} />;
+      case 'upi':
+        return <DirectUPIPayment amount={amount} orderId={orderId} />;
       default:
         return null;
     }
@@ -179,15 +179,15 @@ const PaymentInterface = ({
             Stripe
           </Button>
           <Button
-            variant={selectedPayment === 'paytm' ? 'contained' : 'outlined'}
-            onClick={() => setSelectedPayment('paytm')}
+            variant={selectedPayment === 'upi' ? 'contained' : 'outlined'}
+            onClick={() => setSelectedPayment('upi')}
             disabled={isLoading}
             sx={{
               py: 1.5,
               flex: 1,
-              backgroundColor: selectedPayment === 'paytm' ? theme.palette.primary.light : theme.palette.grey[50],
+              backgroundColor: selectedPayment === 'upi' ? theme.palette.primary.light : theme.palette.grey[50],
               '&:hover': {
-                backgroundColor: selectedPayment === 'paytm' 
+                backgroundColor: selectedPayment === 'upi' 
                   ? theme.palette.primary.dark 
                   : theme.palette.primary.light,
                 color: theme.palette.grey[50],
@@ -196,7 +196,7 @@ const PaymentInterface = ({
               transition: 'transform 0.2s ease-in-out',
             }}
           >
-            Paytm/UPI
+            UPI
           </Button>
         </Box>
 
