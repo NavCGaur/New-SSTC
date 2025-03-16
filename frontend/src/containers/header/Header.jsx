@@ -74,14 +74,7 @@ function Header() {
                       {serviceName:'Business Entity Registration', 
                         link: '/gstregistration'},
                     
-                       {serviceName:'GST Return Filing', 
-                        link: '/gstregistration'},
-
-                       {serviceName:'Income Tax Return Filing', 
-                        link: '/gstregistration'},
-
-                      {serviceName:'Accounting & BookKeeping', 
-                        link: '/gstregistration'},
+                      
 
                         ];
     

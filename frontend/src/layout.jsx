@@ -8,6 +8,7 @@ import About from '../src/containers/about/About';
 import Service from '../src/containers/service/Service';
 import Cta from './containers/cta/Cta';
 import Footer from './containers/footer/Footer';
+//import ChatBotInterface from './containers/chatBot/chatBotInterface/ChatBotInterface';
 
 
 
